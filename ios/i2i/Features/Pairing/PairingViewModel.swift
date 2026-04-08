@@ -3,9 +3,17 @@ import Foundation
 @MainActor
 final class PairingViewModel: ObservableObject {
     @Published var payloadString: String?
+    @Published var isShowingScanner = false
+    @Published var pairingResult: PairingResult?
     @Published var errorMessage: String?
 
+    enum PairingResult {
+        case success(peerName: String)
+        case failure(String)
+    }
+
     func generatePayload(using service: PairingService) {
+        errorMessage = nil
         do {
             let payload = try service.generatePayload()
             payloadString = try payload.encoded()
@@ -14,16 +22,18 @@ final class PairingViewModel: ObservableObject {
         }
     }
 
-    func acceptPayload(string: String, using service: PairingService) {
+    func scanTapped() {
+        isShowingScanner = true
+    }
+
+    func handleScannedString(_ string: String, using service: PairingService) {
+        isShowingScanner = false
         do {
             let payload = try PairingPayload.decode(from: string)
             try service.accept(payload)
+            pairingResult = .success(peerName: payload.displayName)
         } catch {
-            errorMessage = error.localizedDescription
+            pairingResult = .failure(error.localizedDescription)
         }
-    }
-
-    func scanTapped() {
-        // TODO: Ticket 6 – open camera scanner
     }
 }

@@ -26,6 +26,7 @@ targets:
         NSLocalNetworkUsageDescription: "i2i uses your local network to communicate with paired devices."
         NSBonjourServices:
           - _i2i._tcp
+        NSCameraUsageDescription: "i2i uses the camera to scan pairing QR codes."
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.i2i.app
