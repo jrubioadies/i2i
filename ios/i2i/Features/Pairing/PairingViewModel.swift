@@ -2,8 +2,25 @@ import Foundation
 
 @MainActor
 final class PairingViewModel: ObservableObject {
-    func showQRTapped() {
-        // TODO: Tickets 5–6 – generate payload and render QR
+    @Published var payloadString: String?
+    @Published var errorMessage: String?
+
+    func generatePayload(using service: PairingService) {
+        do {
+            let payload = try service.generatePayload()
+            payloadString = try payload.encoded()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    func acceptPayload(string: String, using service: PairingService) {
+        do {
+            let payload = try PairingPayload.decode(from: string)
+            try service.accept(payload)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
     }
 
     func scanTapped() {

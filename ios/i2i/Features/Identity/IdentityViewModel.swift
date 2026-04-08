@@ -7,26 +7,18 @@ final class IdentityViewModel: ObservableObject {
     @Published var createdAt: String = "–"
     @Published var errorMessage: String?
 
-    private let service: IdentityService
-
-    init(service: IdentityService = IdentityService()) {
-        self.service = service
-    }
-
-    func onAppear() {
+    func load(from service: IdentityService) {
         do {
             let identity = try service.loadOrCreate()
             apply(identity)
         } catch {
-            errorMessage = "Failed to load identity: \(error.localizedDescription)"
+            errorMessage = error.localizedDescription
         }
     }
 
     func editTapped() {
-        // TODO: Ticket 2 extension – show edit sheet for display name
+        // TODO: show edit sheet for display name
     }
-
-    // MARK: - Private
 
     private func apply(_ identity: LocalIdentity) {
         deviceIdShort = String(identity.deviceId.uuidString.prefix(8)).uppercased()

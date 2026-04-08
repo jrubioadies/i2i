@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct IdentityView: View {
+    @EnvironmentObject var env: AppEnvironment
     @StateObject private var viewModel = IdentityViewModel()
 
     var body: some View {
@@ -25,7 +26,7 @@ struct IdentityView: View {
                     Button("Edit") { viewModel.editTapped() }
                 }
             }
-            .onAppear { viewModel.onAppear() }
+            .onAppear { viewModel.load(from: env.identityService) }
         }
     }
 }
