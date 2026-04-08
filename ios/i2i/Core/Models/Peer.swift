@@ -1,6 +1,6 @@
 import Foundation
 
-struct Peer: Identifiable {
+struct Peer: Identifiable, Codable {
     let id: UUID
     var displayName: String
     let publicKey: Data

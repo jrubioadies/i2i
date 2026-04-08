@@ -13,15 +13,26 @@ struct PeersView: View {
                         description: Text("Pair a device from the Pair tab.")
                     )
                 } else {
-                    List(viewModel.peers) { peer in
-                        VStack(alignment: .leading) {
-                            Text(peer.displayName).font(.headline)
-                            Text(peer.id.uuidString.prefix(8)).font(.caption).foregroundStyle(.secondary)
+                    List {
+                        ForEach(viewModel.peers) { peer in
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(peer.displayName).font(.headline)
+                                Text(String(peer.id.uuidString.prefix(8)).uppercased())
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                Text("Paired \(peer.pairingDate.formatted(date: .abbreviated, time: .omitted))")
+                                    .font(.caption2)
+                                    .foregroundStyle(.tertiary)
+                            }
+                        }
+                        .onDelete { offsets in
+                            offsets.forEach { viewModel.remove(id: viewModel.peers[$0].id) }
                         }
                     }
                 }
             }
             .navigationTitle("Trusted Peers")
+            .onAppear { viewModel.onAppear() }
         }
     }
 }
