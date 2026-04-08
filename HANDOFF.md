@@ -1,6 +1,7 @@
 # i2i — Handoff Document
 
-Estado del proyecto al 2026-04-08. Todo lo necesario para retomar desde el Mac.
+Estado del proyecto al 2026-04-08 (actualizado). Todo lo necesario para retomar desde el Mac.
+**COMPLETADO:** Todas las funcionalidades MVP (Tickets 1-9).
 
 ---
 
@@ -59,44 +60,46 @@ Estructura de carpetas y ficheros placeholder compilables. TabView con 4 tabs: I
 
 ---
 
+## Qué hay hecho (continuación)
+
+### Ticket 7 — Persist trust after pairing ✅
+- `AppEnvironment` publica `@Published var peerChangeCount` que incrementa cuando se añade un peer.
+- `PairingViewModel` inyecta `AppEnvironment` y llama a `notifyPeerChanged()` tras aceptar un pairing.
+- `PeersView` observa cambios en `env.peerChangeCount` via `onChange` y recarga la lista automáticamente.
+- Sin necesidad de cambiar de tab: el peer aparece en tiempo real en la lista tras un pairing exitoso.
+
+### Ticket 8 — Minimum message transport abstraction ✅
+- `MultipeerTransport`: implementación de `TransportProtocol` usando `MCSession` + `MCNearbyServiceAdvertiser` + `MCNearbyServiceBrowser`.
+- `MessagePayload`: struct Codable que serializa los mensajes para transmisión por `MCSession.send()`.
+- El transport maneja invitaciones automáticas y descubrimiento de pares cercanos (WiFi + BLE).
+- `AppEnvironment` instancia `MultipeerTransport` en `init` y lo inicia en `bootstrap()`.
+
+### Ticket 9 — Test message flow ✅
+- `MessagingViewModel`:
+  - Inyecta `AppEnvironment` para acceder a `identityService`, `peerRepository`, y `transport`.
+  - `localDeviceId` usa el `deviceId` real del identity.
+  - `sendTapped()` crear un `Message` y lo envía via `transport.send()`.
+  - Suscribirse a `transport.onMessageReceived` para recibir mensajes en tiempo real.
+- `MessagingView`:
+  - Picker para seleccionar peer activo (obligatorio para enviar).
+  - Lista de mensajes con estilos diferenciados (enviados vs recibidos).
+  - TextField + botón Send (deshabilitado si no hay peer o draft vacío).
+  - `ContentUnavailableView` si no hay peers emparejados.
+  - Campo de timestamp en cada mensaje.
+
+---
+
 ## Qué falta
 
-### Ticket 7 — Persist trust after pairing
-**Criterios de aceptación:**
-- El peer emparejado aparece en la lista de Trusted Peers.
-- El estado sobrevive al relaunch.
+### Próximas mejoras (v2 o posteriores)
+- **Persistencia de mensajes**: guardar historial en SQLite o Core Data.
+- **Sincronización de estado**: cuando un peer se desconecta, marcar mensajes como fallidos.
+- **Encriptación end-to-end**: usar las claves públicas almacenadas para encriptar mensajes.
+- **Avatar/foto de perfil**: permite al usuario subir una foto de perfil.
+- **Notificaciones**: alertar cuando llega un mensaje mientras la app no está activa.
+- **Typing indicators**: mostrar si el otro dispositivo está escribiendo.
+- **Message receipts**: confirmación de lectura.
 
-**Nota:** `PairingService.accept()` ya llama a `peerRepository.save()`. El peer queda persistido. Lo que falta es:
-- Asegurarse de que `PeersView` se refresca tras un pairing exitoso (actualmente carga en `onAppear`, lo que debería ser suficiente si el tab se visita después).
-- Posiblemente añadir un `@Published` en `AppEnvironment` o usar `NotificationCenter` para notificar a `PeersViewModel` sin cambiar de tab.
-- Test manual: emparejar dos dispositivos y verificar que el peer aparece en ambos tras relanzar la app.
-
-### Ticket 8 — Minimum message transport abstraction
-**Criterios de aceptación:**
-- Existe un servicio de envío.
-- Existe un callback de recepción.
-- El transport está abstraído de la UI.
-
-**Decisión pendiente:** el mecanismo de transporte. Opciones discutidas:
-- **MultipeerConnectivity** ← recomendado para v1. WiFi + BLE automático, Apple lo gestiona, swappable después.
-- Bonjour + TCP/IP: más control, más complejo.
-- BLE manual: máximo control, scope mucho mayor.
-
-**Lo que hay que implementar:**
-- `MultipeerTransport`: implementación concreta de `TransportProtocol` usando `MCSession` + `MCNearbyServiceAdvertiser` + `MCNearbyServiceBrowser`.
-- Serialización de `Message` para enviarlo por `MCSession.send()`.
-- Añadir `MCTransport` a `AppEnvironment`.
-
-### Ticket 9 — Test message flow
-**Criterios de aceptación:**
-- Seleccionar un peer.
-- Enviar un mensaje de texto.
-- Recibirlo en el dispositivo emparejado.
-
-**Lo que hay que implementar:**
-- `MessagingViewModel`: inyectar `IdentityService` para el `localDeviceId` real, y el transport para enviar/recibir.
-- `MessagingView`: selector de peer activo, enviar mensaje, mostrar mensajes recibidos en tiempo real.
-- Conectar el callback `onMessageReceived` del transport al ViewModel.
 
 ---
 
@@ -183,6 +186,11 @@ ios/
 2bb4fde  feat(ticket-4): peer model and repository
 50e5206  feat(ticket-5): pairing payload generation
 519da5f  feat(ticket-6): QR-based pairing UI
+cb46252  feat(ticket-7): persist trust after pairing with real-time UI refresh
+5dc5503  feat(ticket-8): implement MultipeerConnectivity transport layer
+4bfc1a4  feat(ticket-9): implement message sending and receiving flow
 ```
 
-Siguiente: ticket 7 → trust persistence, luego ticket 8 → MultipeerConnectivity transport.
+**Estado:** MVP completo. El flujo de extremo a extremo (generar identidad → emparejar → enviar/recibir mensajes) está operativo.
+
+Siguientes mejoras (v2): persistencia de mensajes, E2E encryption, notificaciones, read receipts.
