@@ -17,6 +17,7 @@
 		5DF8D447ED509EC82F65A0B3 /* PeersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C166E3804C1CC8ED2D158 /* PeersViewModel.swift */; };
 		5EB4C820F4723DF58D2BDE47 /* PairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D0CD264A231AADEC52DA9 /* PairingView.swift */; };
 		60C707E2344555DA996E619D /* LocalPeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C27A1D140A88A8A0C2056E /* LocalPeerRepository.swift */; };
+		6DF5CA81CD460AB3FA0F0A5C /* MultipeerTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D00FA1D2D847EB43762000 /* MultipeerTransport.swift */; };
 		745F686C122C11A881C82ABF /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378526B7A2B475B185E454ED /* QRCodeView.swift */; };
 		792E6871814D44D11F9C9802 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C1685FDFE694BAEB2FD68 /* MessagingViewModel.swift */; };
 		7D290A2627D91EF94F51D8D9 /* PeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96F4F0DA5F8B28532300265 /* PeersView.swift */; };
@@ -50,6 +51,7 @@
 		56606A862C3A3A1317665C49 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
 		604F68AAA78CC39A64E94158 /* i2i.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = i2i.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645D0CD264A231AADEC52DA9 /* PairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingView.swift; sourceTree = "<group>"; };
+		72D00FA1D2D847EB43762000 /* MultipeerTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerTransport.swift; sourceTree = "<group>"; };
 		781E2A49D6031970FB27B7F8 /* IdentityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityViewModel.swift; sourceTree = "<group>"; };
 		785EB48C15E93BE1D10C3460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		802D56BDE5BE8A8EA28CDBD3 /* i2iApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i2iApp.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		74E60AED31E60F5119181B59 /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				72D00FA1D2D847EB43762000 /* MultipeerTransport.swift */,
 				4B64134E14EF47578D320A14 /* TransportProtocol.swift */,
 			);
 			path = Transport;
@@ -289,6 +292,7 @@
 				40C832DF9E0D666A62A79885 /* Message.swift in Sources */,
 				EE453CE6A1D040F6F702B803 /* MessagingView.swift in Sources */,
 				792E6871814D44D11F9C9802 /* MessagingViewModel.swift in Sources */,
+				6DF5CA81CD460AB3FA0F0A5C /* MultipeerTransport.swift in Sources */,
 				0186D6F5990B08BFFB8B7E75 /* PairingPayload.swift in Sources */,
 				C5D801012D2E300A8F155FF4 /* PairingService.swift in Sources */,
 				5EB4C820F4723DF58D2BDE47 /* PairingView.swift in Sources */,
