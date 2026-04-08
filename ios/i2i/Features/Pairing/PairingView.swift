@@ -22,6 +22,9 @@ struct PairingView: View {
             .sheet(isPresented: $viewModel.isShowingScanner) {
                 scannerSheet
             }
+            .onAppear {
+                viewModel.appEnvironment = env
+            }
         }
     }
 

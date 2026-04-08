@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PeersView: View {
+    @EnvironmentObject var env: AppEnvironment
     @StateObject private var viewModel = PeersViewModel()
 
     var body: some View {
@@ -32,7 +33,12 @@ struct PeersView: View {
                 }
             }
             .navigationTitle("Trusted Peers")
-            .onAppear { viewModel.onAppear() }
+            .onAppear {
+                viewModel.initialize(with: env)
+            }
+            .onChange(of: env.peerChangeCount) { _ in
+                viewModel.reload()
+            }
         }
     }
 }

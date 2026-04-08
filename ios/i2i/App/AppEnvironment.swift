@@ -6,6 +6,8 @@ final class AppEnvironment: ObservableObject {
     let identityService: IdentityService
     let pairingService: PairingService
     let peerRepository: any PeerRepository
+    
+    @Published var peerChangeCount = 0
 
     init() {
         let identity = IdentityService()
@@ -17,5 +19,9 @@ final class AppEnvironment: ObservableObject {
 
     func bootstrap() {
         try? identityService.loadOrCreate()
+    }
+    
+    func notifyPeerChanged() {
+        peerChangeCount += 1
     }
 }

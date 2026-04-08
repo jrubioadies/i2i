@@ -6,6 +6,8 @@ final class PairingViewModel: ObservableObject {
     @Published var isShowingScanner = false
     @Published var pairingResult: PairingResult?
     @Published var errorMessage: String?
+    
+    weak var appEnvironment: AppEnvironment?
 
     enum PairingResult {
         case success(peerName: String)
@@ -31,6 +33,7 @@ final class PairingViewModel: ObservableObject {
         do {
             let payload = try PairingPayload.decode(from: string)
             try service.accept(payload)
+            appEnvironment?.notifyPeerChanged()
             pairingResult = .success(peerName: payload.displayName)
         } catch {
             pairingResult = .failure(error.localizedDescription)
