@@ -1,6 +1,6 @@
 import Foundation
 
-struct Message: Identifiable {
+struct Message: Identifiable, Codable, Hashable {
     let id: UUID
     let senderPeerId: UUID
     let receiverPeerId: UUID
@@ -8,7 +8,7 @@ struct Message: Identifiable {
     let body: String
     var status: Status
 
-    enum Status {
+    enum Status: String, Codable {
         case pending
         case sent
         case received

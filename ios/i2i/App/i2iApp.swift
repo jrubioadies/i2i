@@ -6,9 +6,8 @@ struct i2iApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
                 .environmentObject(env)
-                .task { env.bootstrap() }
         }
     }
 }

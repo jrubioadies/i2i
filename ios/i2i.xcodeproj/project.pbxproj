@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0186D6F5990B08BFFB8B7E75 /* PairingPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C861900F6F38D128CF66FE /* PairingPayload.swift */; };
+		03A2C3996B521DB7403A24F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD8A225AF402212B85F6FF7 /* Assets.xcassets */; };
 		1010110340CADBD9E06B4B2C /* IdentityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E86AED9CA7A494EDB9309 /* IdentityService.swift */; };
 		142C2D6183A2DC7F19880789 /* PeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8306DC97EFB6425119D1C7C /* PeerRepository.swift */; };
 		15598AB4EEBB1289AFF16A5E /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6DF45A6D55B3C73931201 /* Peer.swift */; };
@@ -17,18 +18,22 @@
 		5DF8D447ED509EC82F65A0B3 /* PeersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C166E3804C1CC8ED2D158 /* PeersViewModel.swift */; };
 		5EB4C820F4723DF58D2BDE47 /* PairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D0CD264A231AADEC52DA9 /* PairingView.swift */; };
 		60C707E2344555DA996E619D /* LocalPeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C27A1D140A88A8A0C2056E /* LocalPeerRepository.swift */; };
+		694C57F70D42A982ACF60C5B /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4866C9F6F92B418C15EF3 /* EmptyStateView.swift */; };
 		6DF5CA81CD460AB3FA0F0A5C /* MultipeerTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D00FA1D2D847EB43762000 /* MultipeerTransport.swift */; };
 		745F686C122C11A881C82ABF /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378526B7A2B475B185E454ED /* QRCodeView.swift */; };
 		792E6871814D44D11F9C9802 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C1685FDFE694BAEB2FD68 /* MessagingViewModel.swift */; };
 		7D290A2627D91EF94F51D8D9 /* PeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96F4F0DA5F8B28532300265 /* PeersView.swift */; };
 		86B7CFC14071AA8A1029429F /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E591E27E59CDB3AFD319DCF5 /* AppEnvironment.swift */; };
 		A03A99CB2300FA0B55E739A7 /* IdentityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781E2A49D6031970FB27B7F8 /* IdentityViewModel.swift */; };
+		A28D906A2B6DA8CE7F1E5F4C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8B56054D3A84DD726B4B4 /* RootView.swift */; };
 		A9079057A5D386905B57815E /* LocalIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1588B7AD15CD43AE80E9DD /* LocalIdentity.swift */; };
 		BAD1DCE19E2AB2EED7428173 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28955A38290923B283424925 /* KeyStore.swift */; };
+		BB75594FFB449A41928034DE /* LocalMessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91654BB88EA6605B74CFF262 /* LocalMessageRepository.swift */; };
 		C5D801012D2E300A8F155FF4 /* PairingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF8CF9CA2A8B333E7910F8 /* PairingService.swift */; };
 		CA332CF5D6BA18FE77A5B6D3 /* TransportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B64134E14EF47578D320A14 /* TransportProtocol.swift */; };
 		D1949FB723739A8748AF52A8 /* i2iApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802D56BDE5BE8A8EA28CDBD3 /* i2iApp.swift */; };
 		D43CA5E300F7E0D666523502 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A676E28D9E60D35A3B7241 /* ContentView.swift */; };
+		D85D0AE76B6F41E70603C812 /* MessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B8B47883798C8861EC385 /* MessageRepository.swift */; };
 		DC64A518391C1E8AC2CD7F8E /* IdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2F5AAFB0F9965083C3BD0 /* IdentityView.swift */; };
 		E3B9DADDA841217D21B9859E /* IdentityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDBBE2114706675691170D6 /* IdentityRepository.swift */; };
 		EE453CE6A1D040F6F702B803 /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56606A862C3A3A1317665C49 /* MessagingView.swift */; };
@@ -44,24 +49,29 @@
 		2A39AC989B6972FA000A215E /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		378526B7A2B475B185E454ED /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		3EDBBE2114706675691170D6 /* IdentityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityRepository.swift; sourceTree = "<group>"; };
+		3FD8A225AF402212B85F6FF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49B2F5AAFB0F9965083C3BD0 /* IdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityView.swift; sourceTree = "<group>"; };
 		4B64134E14EF47578D320A14 /* TransportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportProtocol.swift; sourceTree = "<group>"; };
 		4FDCCE2478BBE5DB6AB1CF53 /* LocalIdentityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalIdentityRepository.swift; sourceTree = "<group>"; };
 		50C861900F6F38D128CF66FE /* PairingPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingPayload.swift; sourceTree = "<group>"; };
 		56606A862C3A3A1317665C49 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
-		604F68AAA78CC39A64E94158 /* i2i.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = i2i.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		604F68AAA78CC39A64E94158 /* i2i.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i2i.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		606B8B47883798C8861EC385 /* MessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
 		645D0CD264A231AADEC52DA9 /* PairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingView.swift; sourceTree = "<group>"; };
 		72D00FA1D2D847EB43762000 /* MultipeerTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerTransport.swift; sourceTree = "<group>"; };
 		781E2A49D6031970FB27B7F8 /* IdentityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityViewModel.swift; sourceTree = "<group>"; };
 		785EB48C15E93BE1D10C3460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		802D56BDE5BE8A8EA28CDBD3 /* i2iApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i2iApp.swift; sourceTree = "<group>"; };
+		91654BB88EA6605B74CFF262 /* LocalMessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessageRepository.swift; sourceTree = "<group>"; };
 		96AFE6B52010E0E237815EE6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A10C166E3804C1CC8ED2D158 /* PeersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersViewModel.swift; sourceTree = "<group>"; };
 		A26EB8FEDCCB9FD1D288DC27 /* PairingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewModel.swift; sourceTree = "<group>"; };
 		A96F4F0DA5F8B28532300265 /* PeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersView.swift; sourceTree = "<group>"; };
 		B8A676E28D9E60D35A3B7241 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BFD4866C9F6F92B418C15EF3 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		C2AF8CF9CA2A8B333E7910F8 /* PairingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingService.swift; sourceTree = "<group>"; };
 		C8306DC97EFB6425119D1C7C /* PeerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerRepository.swift; sourceTree = "<group>"; };
+		D5F8B56054D3A84DD726B4B4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E591E27E59CDB3AFD319DCF5 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		F0C27A1D140A88A8A0C2056E /* LocalPeerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPeerRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +160,7 @@
 		7B9ACBB3804EFABB3C781317 /* i2i */ = {
 			isa = PBXGroup;
 			children = (
+				3FD8A225AF402212B85F6FF7 /* Assets.xcassets */,
 				785EB48C15E93BE1D10C3460 /* Info.plist */,
 				CFB80D96E9133287413230A1 /* App */,
 				A07D795A0F069EBBBEC67262 /* Core */,
@@ -177,7 +188,9 @@
 			children = (
 				3EDBBE2114706675691170D6 /* IdentityRepository.swift */,
 				4FDCCE2478BBE5DB6AB1CF53 /* LocalIdentityRepository.swift */,
+				91654BB88EA6605B74CFF262 /* LocalMessageRepository.swift */,
 				F0C27A1D140A88A8A0C2056E /* LocalPeerRepository.swift */,
+				606B8B47883798C8861EC385 /* MessageRepository.swift */,
 				C8306DC97EFB6425119D1C7C /* PeerRepository.swift */,
 			);
 			path = Storage;
@@ -189,6 +202,7 @@
 				E591E27E59CDB3AFD319DCF5 /* AppEnvironment.swift */,
 				B8A676E28D9E60D35A3B7241 /* ContentView.swift */,
 				802D56BDE5BE8A8EA28CDBD3 /* i2iApp.swift */,
+				D5F8B56054D3A84DD726B4B4 /* RootView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -215,6 +229,7 @@
 		F7983E8A7D78769DA4D6BF3E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				BFD4866C9F6F92B418C15EF3 /* EmptyStateView.swift */,
 				378526B7A2B475B185E454ED /* QRCodeView.swift */,
 				2A39AC989B6972FA000A215E /* QRScannerView.swift */,
 			);
@@ -229,6 +244,7 @@
 			buildConfigurationList = 17DC16EF3FFBA5D39FA0E658 /* Build configuration list for PBXNativeTarget "i2i" */;
 			buildPhases = (
 				B9928F016FF5A7CA98B0E4AC /* Sources */,
+				B48C38418D00203CDFC0C142 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -249,11 +265,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-					C2F71AB93B5A9F6B8BD8D2EF = {
-						DevelopmentTeam = "";
-					};
-				};
 			};
 			buildConfigurationList = A3AF15574AEBFEA720347D92 /* Build configuration list for PBXProject "i2i" */;
 			developmentRegion = en;
@@ -274,6 +285,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		B48C38418D00203CDFC0C142 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03A2C3996B521DB7403A24F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B9928F016FF5A7CA98B0E4AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -281,6 +303,7 @@
 			files = (
 				86B7CFC14071AA8A1029429F /* AppEnvironment.swift in Sources */,
 				D43CA5E300F7E0D666523502 /* ContentView.swift in Sources */,
+				694C57F70D42A982ACF60C5B /* EmptyStateView.swift in Sources */,
 				E3B9DADDA841217D21B9859E /* IdentityRepository.swift in Sources */,
 				1010110340CADBD9E06B4B2C /* IdentityService.swift in Sources */,
 				DC64A518391C1E8AC2CD7F8E /* IdentityView.swift in Sources */,
@@ -288,8 +311,10 @@
 				BAD1DCE19E2AB2EED7428173 /* KeyStore.swift in Sources */,
 				A9079057A5D386905B57815E /* LocalIdentity.swift in Sources */,
 				18ABDAE5B6B10F4159821780 /* LocalIdentityRepository.swift in Sources */,
+				BB75594FFB449A41928034DE /* LocalMessageRepository.swift in Sources */,
 				60C707E2344555DA996E619D /* LocalPeerRepository.swift in Sources */,
 				40C832DF9E0D666A62A79885 /* Message.swift in Sources */,
+				D85D0AE76B6F41E70603C812 /* MessageRepository.swift in Sources */,
 				EE453CE6A1D040F6F702B803 /* MessagingView.swift in Sources */,
 				792E6871814D44D11F9C9802 /* MessagingViewModel.swift in Sources */,
 				6DF5CA81CD460AB3FA0F0A5C /* MultipeerTransport.swift in Sources */,
@@ -303,6 +328,7 @@
 				5DF8D447ED509EC82F65A0B3 /* PeersViewModel.swift in Sources */,
 				745F686C122C11A881C82ABF /* QRCodeView.swift in Sources */,
 				57B7A5E7E49163C22F4817D5 /* QRScannerView.swift in Sources */,
+				A28D906A2B6DA8CE7F1E5F4C /* RootView.swift in Sources */,
 				CA332CF5D6BA18FE77A5B6D3 /* TransportProtocol.swift in Sources */,
 				D1949FB723739A8748AF52A8 /* i2iApp.swift in Sources */,
 			);
@@ -357,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4GH5R96VHF;
 				INFOPLIST_FILE = i2i/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,7 +407,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.i2i.app;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -436,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -453,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4GH5R96VHF;
 				INFOPLIST_FILE = i2i/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,7 +488,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.i2i.app;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};

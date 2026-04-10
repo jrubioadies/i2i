@@ -8,10 +8,10 @@ struct PeersView: View {
         NavigationStack {
             Group {
                 if viewModel.peers.isEmpty {
-                    ContentUnavailableView(
-                        "No Paired Devices",
+                    EmptyStateView(
+                        title: "No Paired Devices",
                         systemImage: "person.2.slash",
-                        description: Text("Pair a device from the Pair tab.")
+                        description: "Pair a device from the Pair tab."
                     )
                 } else {
                     List {
@@ -36,9 +36,9 @@ struct PeersView: View {
             .onAppear {
                 viewModel.initialize(with: env)
             }
-            .onChange(of: env.peerChangeCount) { _ in
+            .onChange(of: env.peerChangeCount, perform: { _ in
                 viewModel.reload()
-            }
+            })
         }
     }
 }
