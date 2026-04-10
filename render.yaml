@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ws-relay-zi5u
+    runtime: node
+    rootDir: phase-2-internet-relay/backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
